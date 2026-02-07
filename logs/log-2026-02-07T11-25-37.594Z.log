@@ -1,0 +1,12 @@
+[2026-02-07 12:25:37] [APP] INFO: Swagger disponible en /api-docs
+[2026-02-07 12:25:37] [APP] INFO: Rutas montadas en /api/v1
+[2026-02-07 12:25:38] [APP] INFO: [MongoDB Config] Conexión con la base de datos inicializada con éxito.
+[2026-02-07 12:25:38] [APP] INFO: Servidor escuchando en https://localhost: 4000
+[2026-02-07 12:25:58] [APP] INFO: Cliente conectado por WS
+[2026-02-07 12:31:20] [APP] INFO: Cliente conectado por WS
+[2026-02-07 12:31:43] [APP] INFO: Cliente conectado por WS
+[2026-02-07 12:32:38] [APP] INFO: Cliente deconectado
+[2026-02-07 12:32:41] [APP] INFO: Cliente conectado por WS
+[2026-02-07 12:32:45] [APP] INFO: Cliente deconectado
+[2026-02-07 12:32:47] [APP] INFO: Cliente conectado por WS
+[2026-02-07 12:36:18] [APP] ERROR: [POST] /api/v1/sondas - Cannot read properties of undefined (reading 'localizacion')

@@ -1,0 +1,49 @@
+#Define JWT manualmente
+@JWT = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTg1ZDgwYjNkNTk1YjAxN2U0NzcxYWIiLCJpYXQiOjE3NzA0NjcxMDYsImV4cCI6MTc3MDQ3NDMwNn0.SzdV41sHYQMbTHS8Nyf3jMMHZeI7MuFrMxZVB6oPhdA
+
+GET https://localhost:4000/api/v1/datosViento HTTP/1.1
+Authorization: Bearer {{JWT}}
+
+###
+
+GET https://localhost:4000/api/v1/datosViento/stats HTTP/1.1
+Authorization: Bearer {{JWT}}
+
+###
+
+GET https://localhost:4000/api/v1/datosViento/6907bf2beab2e65bd4a68104 HTTP/1.1
+Authorization: Bearer {{JWT}}
+
+###
+POST https://localhost:4000/api/v1/datosViento HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{JWT}}
+
+{
+    "velocidadViento": 135,
+    "velocidadRafagas": 210,
+    "direccionViento": "NE",
+    "sonda": "695e36d85b8b7515a969f0c7",
+    "fechaMedicion": "2025-11-02",
+    "horaMedicion": "13:59"
+}
+
+###
+PUT https://localhost:4000/api/v1/datosViento/69873b388575e6f96082fa24 HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{JWT}}
+
+{
+    "velocidadViento": 200,
+    "velocidadRafagas": 290,
+    "direccionViento": "S",
+    "sonda": "698723b2b26a19e008a5dc19",
+    "fechaMedicion": "2025-11-02",
+    "horaMedicion": "19:59"
+}
+
+###
+DELETE https://localhost:4000/api/v1/datosViento/6907bf2beab2e65bd4a68104 HTTP/1.1
+Authorization: Bearer {{JWT}}
+
+###

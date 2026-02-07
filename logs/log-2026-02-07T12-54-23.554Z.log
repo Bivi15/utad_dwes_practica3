@@ -1,0 +1,12 @@
+[2026-02-07 13:54:23] [APP] INFO: Swagger disponible en /api-docs
+[2026-02-07 13:54:23] [APP] INFO: Rutas montadas en /api/v1
+[2026-02-07 13:54:24] [APP] INFO: [MongoDB Config] Conexión con la base de datos inicializada con éxito.
+[2026-02-07 13:54:24] [APP] INFO: Servidor escuchando en https://localhost: 4000
+[2026-02-07 13:54:56] [APP] INFO: Cliente conectado por WS
+[2026-02-07 13:55:44] [APP] ERROR: [PUT] /api/v1/sondas/698723b2b26a19e008a5dc19 - Plan executor error during findAndModify :: caused by :: E11000 duplicate key error collection: test.sondas index: nombreSonda_1 dup key: { nombreSonda: "Sonda # 6" }
+[2026-02-07 13:55:58] [APP] INFO: [WS] UPDATE Sonda = Madrid (clientes: 1)
+[2026-02-07 13:59:34] [APP] INFO: Cliente deconectado
+[2026-02-07 13:59:36] [APP] INFO: Cliente conectado por WS
+[2026-02-07 13:59:55] [APP] INFO: [WS] UPDATE Sonda = Madrid (clientes: 1)
+[2026-02-07 14:00:21] [APP] INFO: [WS] CREATE Presión = undefined (clientes: 0)
+[2026-02-07 14:00:41] [APP] INFO: [WS] UPDATE Presión = undefined (clientes: 0)

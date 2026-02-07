@@ -1,0 +1,9 @@
+[2026-02-07 13:48:46] [APP] INFO: Swagger disponible en /api-docs
+[2026-02-07 13:48:46] [APP] INFO: Rutas montadas en /api/v1
+[2026-02-07 13:48:46] [APP] INFO: [MongoDB Config] Conexión con la base de datos inicializada con éxito.
+[2026-02-07 13:48:46] [APP] INFO: Servidor escuchando en https://localhost: 4000
+[2026-02-07 13:49:52] [APP] INFO: Cliente conectado por WS
+[2026-02-07 13:50:32] [APP] ERROR: [POST] /api/v1/sondas - E11000 duplicate key error collection: test.sondas index: nombreSonda_1 dup key: { nombreSonda: "Sonda # 1" }
+[2026-02-07 13:50:35] [APP] INFO: [WS] undefined Sonda = Valencia (clientes: 0)
+[2026-02-07 13:50:51] [APP] INFO: [WS] undefined Presión = undefined (clientes: 0)
+[2026-02-07 13:50:59] [APP] INFO: [WS] undefined Presión = undefined (clientes: 0)

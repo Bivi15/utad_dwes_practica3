@@ -1,0 +1,15 @@
+[2026-02-07 12:41:15] [APP] INFO: Swagger disponible en /api-docs
+[2026-02-07 12:41:15] [APP] INFO: Rutas montadas en /api/v1
+[2026-02-07 12:41:16] [APP] INFO: [MongoDB Config] Conexión con la base de datos inicializada con éxito.
+[2026-02-07 12:41:16] [APP] INFO: Servidor escuchando en https://localhost: 4000
+[2026-02-07 12:41:50] [APP] ERROR: [POST] /api/v1/sondas - E11000 duplicate key error collection: test.sondas index: nombreSonda_1 dup key: { nombreSonda: "Sonda # 1" }
+[2026-02-07 12:42:27] [APP] INFO: Cliente conectado por WS
+[2026-02-07 12:42:33] [APP] INFO: Cliente conectado por WS
+[2026-02-07 12:42:37] [APP] INFO: Cliente conectado por WS
+[2026-02-07 12:47:53] [APP] INFO: Cliente deconectado
+[2026-02-07 12:47:59] [APP] INFO: Cliente deconectado
+[2026-02-07 12:48:00] [APP] INFO: Cliente conectado por WS
+[2026-02-07 12:48:03] [APP] INFO: Cliente deconectado
+[2026-02-07 12:48:06] [APP] INFO: Cliente conectado por WS
+[2026-02-07 12:53:28] [APP] INFO: Cliente deconectado
+[2026-02-07 12:53:28] [APP] INFO: Cliente deconectado

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cliente WebSocket AEMET</title>
+
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f4f6f8;
+            padding: 40px;
+        }
+
+        h3 {
+            color: #333;
+        }
+
+        .box {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            max-width: 600px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .status {
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .log {
+            background: #111;
+            color: #0f0;
+            padding: 10px;
+            height: 250px;
+            overflow-y: auto;
+            font-family: monospace;
+            font-size: 14px;
+            border-radius: 4px;
+        }
+        .log-entry {
+            margin-bottom: 102px;
+            padding: 8px;
+            border-radius: 4px;
+            background: #0b0b0b;
+        }
+        .log-title {
+            color: #00eaff;
+            font-weight: bold;
+            margin-bottom: 4px;
+        }
+        .log-meta {
+            color: #aaa;
+            font-size: 12px;
+            margin-bottom: 4px;
+        }
+        .log-json {
+            white-space: pre-wrap;
+            color: #0f0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="box">
+        <h3>Cliente WebSocket AEMET (prueba)</h3>
+
+        <div class="status" id="status">
+            Estado: desconectado
+        </div>
+
+        <div class="log" id="log"></div>
+    </div>
+
+
+<script>
+    const status = document.getElementById("status");
+    const log = document.getElementById("log");
+
+    const ciudad = prompt("Ciudad a suscribirse", "Madrid");
+
+    const ws = new WebSocket("wss://localhost:4000");
+
+    const writeLog = (text) => {
+        const line = document.createElement("div");
+        line.className = "log-entry";
+        line.textContent = `${text}`;
+        log.appendChild(line);
+        log.scrollTop = log.scrollHeight;
+    };
+
+    const writeNotification = (payload) => {
+        const wrapper = document.createElement("div");
+        wrapper.className = "log-entry";
+
+        const title = document.createElement("div");
+        title.className = "log-title";
+        title.textContent = `${payload.tipo} - ${payload.accion.toUpperCase()}`;
+
+        const meta = document.createElement("div");
+        meta.className = "log-meta";
+        meta.textContent = `Localización: ${payload.localizacion} - ${new Date().toLocaleTimeString()}`;
+
+        const json = document.createElement("pre");
+        json.className = "log-json";
+        
+        const display = {
+            data: payload.data,
+            stats: payload.stats || {}
+        };
+        json.textContent = JSON.stringify(display, null, 2);
+
+        wrapper.appendChild(title);
+        wrapper.appendChild(meta);
+        wrapper.appendChild(json);
+
+        log.appendChild(wrapper);
+        log.scrollTop = log.scrollHeight;
+    };
+
+    ws.onopen = () => {
+        status.textContent = `Estado: conectado (suscrito a ${ciudad})`
+        ws.send(JSON.stringify({
+            type: "subscribe",
+            localizacion: ciudad
+        }));
+        writeLog("Conectado al servidor WS");
+        writeLog(`Suscripción enviada: ${ciudad}`);
+    };
+
+    ws.onmessage = (msg) => {
+        const data = JSON.parse(msg.data);
+        if (!data.accion) {
+            writeLog(data.message || "Mensjae del servidor");
+            return;
+        }
+        writeNotification(data);
+    };
+
+    ws.onerror = (err) => {
+        writeLog("Error en WebSocket");
+        console.error(err);
+    };
+
+    ws.onclose = () => {
+        status.textContent = "Estado: conexión cerrada";
+        writeLog("Conexión cerrada");
+    };
+</script>
+
+</body>
+</html>

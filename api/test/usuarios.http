@@ -1,0 +1,52 @@
+POST https://localhost:4000/api/v1/usuarios HTTP/1.1
+Content-Type: application/json
+
+{
+    "nombreUsuario": "admin3",
+    "nombreCompleto": "Juan Perez Rojas",
+    "descripcion": "Usuario admin",
+    "email": "admin3@test.com",
+    "contrasena": "123456"
+}
+
+###
+
+POST https://localhost:4000/api/v1/usuarios/login
+Content-Type: application/json
+
+{
+    "email": "admin3@test.com",
+    "contrasena": "123456"
+}
+
+###
+
+@JWT = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTg1ZDgwYjNkNTk1YjAxN2U0NzcxYWIiLCJpYXQiOjE3NzA0NjQxMjIsImV4cCI6MTc3MDQ3MTMyMn0.5PwesxnKb9fc0R7k59ee-gZEm7236fq8-LpmIWAgoZA
+
+GET https://localhost:4000/api/v1/usuarios HTTP/1.1
+Authorization: Bearer {{JWT}}
+
+###
+GET https://localhost:4000/api/v1/usuarios/695d1f6fa89ded3f70eed02d HTTP/1.1
+Authorization: Bearer {{JWT}}
+
+###
+
+
+PUT https://localhost:4000/api/v1/usuarios/695d1f6fa89ded3f70eed02d HTTP/1.1
+Authorization: Bearer {{JWT}}
+Content-Type: application/json
+
+{
+    "nombreUsuario": "PabloR",
+    "nombreCompleto": "Pablo Rodriguez Ruiz",
+    "descripcion": "Prueba de usuario",
+    "email": "admin2@test.com",
+    "contrasena": "123456"
+}
+
+###
+DELETE https://localhost:4000/api/v1/695d1f6fa89ded3f70eed02d HTTP/1.1
+Authorization: Bearer {{JWT}}
+
+###

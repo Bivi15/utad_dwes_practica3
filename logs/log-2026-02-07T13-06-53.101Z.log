@@ -1,0 +1,2 @@
+[2026-02-07 14:30:09] [JWT] ERROR: [handleJWT] verifyToken: jwt expired
+[2026-02-07 14:30:09] [JWT] WARN: [handleJWT] Token inválido

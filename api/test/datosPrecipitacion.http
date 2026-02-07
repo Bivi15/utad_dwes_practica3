@@ -1,0 +1,47 @@
+#Define JWT manualmente
+@JWT = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTg1ZDgwYjNkNTk1YjAxN2U0NzcxYWIiLCJpYXQiOjE3NzA0NjcxMDYsImV4cCI6MTc3MDQ3NDMwNn0.SzdV41sHYQMbTHS8Nyf3jMMHZeI7MuFrMxZVB6oPhdA
+Authorization: Bearer {{JWT}}
+
+###
+
+GET https://localhost:4000/api/v1/datosPrecipitacion/stats HTTP/1.1
+Authorization: Bearer {{JWT}}
+
+###
+
+GET https://localhost:4000/api/v1/datosPrecipitacion/6907c3df9659b613bb3853a4 HTTP/1.1
+Authorization: Bearer {{JWT}}
+
+###
+POST https://localhost:4000/api/v1/datosPrecipitacion HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{JWT}}
+
+{
+    "tipoPrecipitacion": "Agua",
+    "probabilidadPrecipitacion": 90,
+    "precipitacionAcumulada": 24,
+    "sonda": "695e36d85b8b7515a969f0c7",
+    "fechaMedicion": "2025-11-02",
+    "horaMedicion": "13:59"
+}
+
+###
+PUT https://localhost:4000/api/v1/datosPrecipitacion/69873e778575e6f96082fa3d HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{JWT}}
+
+{
+    "tipoPrecipitacion": "Granizo",
+    "probabilidadPrecipitacion": 50,
+    "precipitacionAcumulada": 10,
+    "sonda": "695e36d85b8b7515a969f0c7",
+    "fechaMedicion": "2025-10-02",
+    "horaMedicion": "13:30"
+}
+
+###
+DELETE https://localhost:4000/api/v1/datosPrecipitacion/6907c3df9659b613bb3853a4 HTTP/1.1
+Authorization: Bearer {{JWT}}
+
+###

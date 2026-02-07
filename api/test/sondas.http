@@ -1,0 +1,39 @@
+#Define JWT manualmente
+@JWT = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTg1ZDgwYjNkNTk1YjAxN2U0NzcxYWIiLCJpYXQiOjE3NzA0NjcxMDYsImV4cCI6MTc3MDQ3NDMwNn0.SzdV41sHYQMbTHS8Nyf3jMMHZeI7MuFrMxZVB6oPhdA
+
+GET https://localhost:4000/api/v1/sondas HTTP/1.1
+Authorization: Bearer {{JWT}}
+
+###
+
+GET https://localhost:4000/api/v1/sondas/695e36d85b8b7515a969f0c7 HTTP/1.1
+Authorization: Bearer {{JWT}}
+
+###
+
+POST https://localhost:4000/api/v1/sondas HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{JWT}}
+
+{
+    "nombreSonda": "Sonda # 1",
+    "descripcionSonda": "Prueba de descripción",
+    "localizacion": "Madrid"
+}
+
+###
+PUT https://localhost:4000/api/v1/sondas/695e36d85b8b7515a969f0c7 HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{JWT}}
+
+{
+    "nombreSonda": "Sonda # 1",
+    "descripcionSonda": "Sonda para WS",
+    "localizacion": "Gijón"
+}
+
+###
+DELETE https://localhost:4000/api/v1/sondas/695e36d85b8b7515a969f0c7 HTTP/1.1
+Authorization: Bearer {{JWT}}
+
+###
